@@ -12,7 +12,7 @@ script.onload = function () {
 
     const pdf = new jsPDF({
         unit: "px",
-        format: [501, 709]
+        format: [800, 1000]
     });
 
     const imgs = document.querySelectorAll("img");
@@ -32,17 +32,17 @@ script.onload = function () {
 
         const data = canvas.toDataURL("image/jpeg", 1.0);
 
-        const scale = Math.min(501 / w, 709 / h);
+        const scale = Math.min(800 / w, 1000 / h);
         const drawW = w * scale;
         const drawH = h * scale;
 
-        const x = (501 - drawW) / 2;
-        const y = (709 - drawH) / 2;
+        const x = (800 - drawW) / 2;
+        const y = (1000 - drawH) / 2;
 
         pdf.addImage(data, "JPEG", x, y, drawW, drawH);
 
         if (index < imgs.length - 1) {
-            pdf.addPage([501, 709]);
+            pdf.addPage([800, 1000]);
         }
     });
 
@@ -50,3 +50,4 @@ script.onload = function () {
 };
 
 document.body.appendChild(script);
+
